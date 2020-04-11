@@ -1,5 +1,5 @@
 body{
-    background: #fffff8;
+    /* background: #fffff8; */
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -9,8 +9,8 @@ body{
     /* grid-template-columns:  */
     height:100vh;
     margin: auto;
-    background: #f23557;
-    color: #f0d43a;
+    background: royalblue;
+    color: gold;
     justify-content: center;
     /* grid-gap: 1em; */
     font-size: 20px;
@@ -77,6 +77,7 @@ button{
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
+    cursor: pointer;
 }
 h1{
     font-size: 36px;
