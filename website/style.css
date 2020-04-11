@@ -5,23 +5,25 @@ body{
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    /* grid-auto-rows: minmax(150px, auto); */
     /* grid-template-columns:  */
     height:100vh;
+    margin: auto;
     background: #f23557;
     color: #f0d43a;
     justify-content: center;
-    grid-gap: 1em;
+    /* grid-gap: 1em; */
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
 
 .holder{
-
+text-align: center;
 }
 
 .entry{
     background: rgba(59, 74, 107, .4);
+
 }
 
 #entryHolder{
@@ -41,7 +43,8 @@ body{
 }
 
 .headline {
-
+padding: 10px;
+height: 10px;
 }
 .title{
 
@@ -62,11 +65,12 @@ input{
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
+    margin: auto;
 }
 
 button{
-    width: 400px;
-    height: 100px;
+    width: 100px;
+    height: 50px;
     background: #3b4a6b;
     color: #f0d43a;
     font-size: 26px;
