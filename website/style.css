@@ -30,6 +30,10 @@ body {
     height: 10px;
 }
 
+.title {
+    text-decoration: underline;
+}
+
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 
