@@ -1,7 +1,7 @@
 /* Global Variables */
 let baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 // Personal API Key for OpenWeatherMap API
-const apiKey = '&appid=d38a934f798f5d08a463eba5bba143cb';
+const apiKey = '&appid=d38a934f798f5d08a463eba5bba143cb&units=imperial';
 
 
 // Create a new date instance dynamically with JS
@@ -17,18 +17,20 @@ function performAction(evt) {
     let feelings = document.getElementById('feelings').value;
     getWeather(baseUrl, zipCode, apiKey)
         //Post Data
-        .then(function (data) {
+        .then(function(data) {
             postData('/add', {
-                temperature: data.main.temp, date: newDate, response: feelings
+                temperature: data.main.temp,
+                date: newDate,
+                response: feelings
             });
         })
         //update UI
-        .then(function (res) { updateUI('/all') });
+        .then(function(res) { updateUI('/all') });
 }
 
 
 // /* Function to GET Web API Data*/
-const getWeather = async (baseUrl, zipCode, apiKey) => {
+const getWeather = async(baseUrl, zipCode, apiKey) => {
     let url = baseUrl + zipCode + apiKey;
     const res = await fetch(url)
     try {
@@ -42,7 +44,7 @@ const getWeather = async (baseUrl, zipCode, apiKey) => {
 
 
 // Async POST
-const postData = async (url = '', data = {}) => {
+const postData = async(url = '', data = {}) => {
 
     const response = await fetch(url, {
         method: 'POST',
@@ -65,21 +67,16 @@ const postData = async (url = '', data = {}) => {
 
 // /* Function to GET Project Data */
 
-const updateUI = async (url='/all') => {
+const updateUI = async(url = '/all') => {
     const request = await fetch(url);
     try {
         const allData = await request.json();
         console.log(allData)
-        document.getElementById('date').innerHTML = `Date: ${allData[0].date}`;
-        document.getElementById('temp').innerHTML = `Temperature: ${allData[0].temperature}`;
-        document.getElementById('content').innerHTML = `Feelings: ${allData[0].response}`;
+        document.getElementById('date').innerHTML = `Date: ${allData.date}`;
+        document.getElementById('temp').innerHTML = `Temperature: ${allData.temperature}°F`;
+        document.getElementById('content').innerHTML = `Feelings: ${allData.response}`;
 
     } catch (error) {
         console.log("error", error);
     }
 }
-
-
-// /* Function to POST data */
-
-
